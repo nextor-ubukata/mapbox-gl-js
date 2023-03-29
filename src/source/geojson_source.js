@@ -311,6 +311,7 @@ class GeoJSONSource extends Evented implements Source {
         // target {this.type}.loadData rather than literally geojson.loadData,
         // so that other geojson-like source types can easily reuse this
         // implementation
+        console.log('nama load geojson');
         this._pendingLoad = this.actor.send(`${this.type}.loadData`, options, (err, result) => {
             this._loaded = true;
             this._pendingLoad = null;
@@ -341,6 +342,7 @@ class GeoJSONSource extends Evented implements Source {
     }
 
     loadTile(tile: Tile, callback: Callback<void>) {
+        console.log('nama load tile');
         const message = !tile.actor ? 'loadTile' : 'reloadTile';
         tile.actor = this.actor;
         const params = {
