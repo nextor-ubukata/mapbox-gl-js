@@ -141,6 +141,7 @@ class Actor {
         } else {
             const buffers: ?Array<Transferable> = isSafari(this.globalScope) ? undefined : [];
             const done = task.hasCallback ? (err, data) => {
+                console.log('nama: callback');
                 delete this.cancelCallbacks[id];
                 this.target.postMessage({
                     id,
