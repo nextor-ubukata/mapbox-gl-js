@@ -102,6 +102,7 @@ class GeoJSONWorkerSource extends VectorTileWorkerSource {
      */
     constructor(actor: Actor, layerIndex: StyleLayerIndex, availableImages: Array<string>, isSpriteLoaded: boolean, loadGeoJSON: ?LoadGeoJSON) {
         super(actor, layerIndex, availableImages, isSpriteLoaded, loadGeoJSONTile);
+        console.log(`nama worker`);
         if (loadGeoJSON) {
             this.loadGeoJSON = loadGeoJSON;
         }
