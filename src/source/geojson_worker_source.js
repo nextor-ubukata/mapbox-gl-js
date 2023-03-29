@@ -126,10 +126,12 @@ class GeoJSONWorkerSource extends VectorTileWorkerSource {
      * @private
      */
     loadData(params: LoadGeoJSONParameters, callback: Callback<{resourceTiming?: {[_: string]: Array<PerformanceResourceTiming>}}>) {
+        console.log('nama: worker: 2');
         const requestParam = params && params.request;
         const perf = requestParam && requestParam.collectResourceTiming;
 
         this.loadGeoJSON(params, (err: ?Error, data: ?Object) => {
+            console.log('nama: worker: 1');
             if (err || !data) {
                 return callback(err);
             } else if (typeof data !== 'object') {

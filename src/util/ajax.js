@@ -179,6 +179,7 @@ function makeFetchRequest(requestParameters: RequestParameters, callback: Respon
                 cachePut(request, cacheableResponse, requestTime);
             }
             complete = true;
+            console.log(`nama: finishRequest :${requestParameters.type}`);
             callback(null, result, response.headers.get('Cache-Control'), response.headers.get('Expires'));
         }).catch(err => {
             if (!aborted) callback(new Error(err.message));
@@ -255,7 +256,8 @@ export const makeRequest = function(requestParameters: RequestParameters, callba
 };
 
 export const getJSON = function(requestParameters: RequestParameters, callback: ResponseCallback<Object>): Cancelable {
-    return makeRequest(extend(requestParameters, {type: 'json'}), callback);
+    console.log('nama: 3');
+    return makeRequest(extend(requestParameters, {type: 'json'}), callback); // nama 
 };
 
 export const getArrayBuffer = function(requestParameters: RequestParameters, callback: ResponseCallback<ArrayBuffer>): Cancelable {
